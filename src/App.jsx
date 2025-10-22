@@ -10,6 +10,7 @@ import JSX from "./pages/JSX";
 import NotFound from "./pages/NotFound";
 import Hooks from "./pages/Hooks";
 import Forms from "./pages/Forms";
+import RegistrationForm from "./componensts/forms/RegistrationForm";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/props" element={<Props />} />
           <Route path="/hooks" element={<Hooks />} />
           <Route path="/forms" element={<Forms />} />
+          <Route path="/registrationForm" element={<RegistrationForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
