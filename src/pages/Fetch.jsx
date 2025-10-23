@@ -1,12 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function Fetch() {
-  const fetchUsers = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+  const[users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+  const response = await  fetch("https://jsonplaceholder.typicode.com/users")
+  const userData = await response.json()
+  console.log(userData);
+  
+  setUsers(users);
   };
-  useEffect(fetchUsers)
+
 
   return <div>Fetch</div>;
 }
