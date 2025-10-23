@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import "../../styles/RegistrationForm.css";
 
-
-
-
 function RegistrationForm() {
-   const initialValues = {
+  const initialValues = {
     fullName: "",
     age: "",
     email: "",
@@ -14,13 +11,13 @@ function RegistrationForm() {
     country: "",
     skills: [],
     bio: "",
-  }
+  };
 
-   const [formData, setFormData] = useState(initialValues)
+  const [formData, setFormData] = useState(initialValues);
 
-   const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-      console.log("Checked:", checked);
+    console.log("Checked:", checked);
 
     if (type === "checkbox") {
       setFormData((prev) => {
@@ -39,10 +36,10 @@ function RegistrationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   console.log("Submitted Data:", formData);
+    console.log("Submitted Data:", formData);
     alert("Form submitted successfully! Check console for JSON data");
 
-    setFormData(initialValues)
+    setFormData(initialValues);
   };
 
   return (
@@ -67,7 +64,7 @@ function RegistrationForm() {
             name="age"
             className="input-box"
             placeholder="Enter your age"
-             value={formData.age}
+            value={formData.age}
             onChange={handleChange}
           />
           <br />
@@ -78,7 +75,7 @@ function RegistrationForm() {
             name="email"
             className="input-box"
             placeholder="Enter your email"
-             value={formData.email}
+            value={formData.email}
             onChange={handleChange}
           />
           <br />
@@ -89,17 +86,35 @@ function RegistrationForm() {
             name="password"
             className="input-box"
             placeholder="Enter your password"
-             value={formData.password}
+            value={formData.password}
             onChange={handleChange}
           />
           <br />
           <div></div>
           <label>Gender</label> <br />
-          <input type="radio" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleChange}/> Male
-          <input type="radio" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleChange}/> Female <br />
+          <input
+            type="radio"
+            name="gender"
+            value="Male"
+            checked={formData.gender === "Male"}
+            onChange={handleChange}
+          />
+          Male
+          <input
+            type="radio"
+            name="gender"
+            value="Female"
+            checked={formData.gender === "Female"}
+            onChange={handleChange}
+          />
+          Female <br />
           <label>Country</label> <br />
-          <select name="country" className="country" value={formData.country}
-            onChange={handleChange}>
+          <select
+            name="country"
+            className="country"
+            value={formData.country}
+            onChange={handleChange}
+          >
             <option value="">Select</option>
             <option value="Sri Lanka">Sri Lanka</option>
             <option value="India">India</option>
@@ -110,15 +125,45 @@ function RegistrationForm() {
           </select>
           <br />
           <label>Skills</label> <br />
-          <input type="checkbox" name="skills" value="HTML" checked={formData.skills.includes("HTML")} onChange={handleChange}  />
+          <input
+            type="checkbox"
+            name="skills"
+            value="HTML"
+            checked={formData.skills.includes("HTML")}
+            onChange={handleChange}
+          />
           HTML
-          <input type="checkbox" name="skills" value="CSS"checked={formData.skills.includes("CSS")} onChange={handleChange} />
+          <input
+            type="checkbox"
+            name="skills"
+            value="CSS"
+            checked={formData.skills.includes("CSS")}
+            onChange={handleChange}
+          />
           CSS
-          <input type="checkbox" name="skills" value="Javascript" checked={formData.skills.includes("Javascript")} onChange={handleChange} />
+          <input
+            type="checkbox"
+            name="skills"
+            value="Javascript"
+            checked={formData.skills.includes("Javascript")}
+            onChange={handleChange}
+          />
           Javascript
-          <input type="checkbox" name="skills" value="React" checked={formData.skills.includes("React")} onChange={handleChange} />
+          <input
+            type="checkbox"
+            name="skills"
+            value="React"
+            checked={formData.skills.includes("React")}
+            onChange={handleChange}
+          />
           React
-          <input type="checkbox" name="skills" value="Node.js" checked={formData.skills.includes("Node.js")} onChange={handleChange}/>
+          <input
+            type="checkbox"
+            name="skills"
+            value="Node.js"
+            checked={formData.skills.includes("Node.js")}
+            onChange={handleChange}
+          />
           Node.js <br />
           <label>Bio</label> <br />
           <textarea
