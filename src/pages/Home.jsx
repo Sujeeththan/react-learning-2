@@ -8,6 +8,8 @@ function Home() {
       <HomeCard url="components" />
       <HomeCard url="props" />
       <HomeCard url="hooks" />
+      <HomeCard url="fetch" />
+
       {/* <HomeCard url="forms" /> */}
     </>
   );
