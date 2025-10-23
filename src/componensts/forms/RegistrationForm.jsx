@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/RegistrationForm.css";
-import * as Yup from "yup";
-import { useFormik } from "formik";
 
-const formik = useFormik({
-  initialValues: {
-    fullname: "",
+
+
+
+function RegistrationForm() {
+   const initialValues = {
+    fullName: "",
     age: "",
     email: "",
     password: "",
@@ -13,115 +14,121 @@ const formik = useFormik({
     country: "",
     skills: [],
     bio: "",
-  },
+  }
 
-  validationSchema: Yup.object({
-    fullname: Yup.string()
-      .required("Name is required")
-      .min(2, "Name must have at least 2 characters"),
+   const [formData, setFormData] = useState(initialValues)
 
-    age: Yup.number()
-      .required("Age is required")
-      .typeError("You must be at least 18 years old")
-      .min(18, "Minimum age is 18")
-      .max(100, "Maximum age is 100"),
+   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+      console.log("Checked:", checked);
 
-    email: Yup.string()
-      .required("Email is required")
-      .email("Invalid email format"),
+    if (type === "checkbox") {
+      setFormData((prev) => {
+        const skills = prev.skills.includes(value)
+          ? prev.skills.filter((skill) => skill !== value)
+          : [...prev.skills, value];
+        return { ...prev, skills };
+      });
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
 
-    password: Yup.string()
-      .required("Password is required")
-      .matches(/[A-Z]/, "Must be at least one uppercase letter")
-      .matches(/[a-z]/, "Must be at least one lowercase letter")
-      .matches(/\d/, "Must be at least one number")
-      .matches(/[@$!%*?&]/, "Must be at least one special character")
-      .min(6, "Password must be at least 6 charaters long, include uppercase, lowercase,number,and special character"),
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   console.log("Submitted Data:", formData);
+    alert("Form submitted successfully! Check console for JSON data");
 
-    gender: Yup.string()
-      .required("Gender is required"),
+    setFormData(initialValues)
+  };
 
-    country: Yup.string()
-       .required("Country is required"),
-    
-    skills: Yup.array()
-       .min(1, "Select at least one skill"),
-
-    bio: Yup.string()
-       .max(300, "Max 300 characters allowed"),   
-  }),
-});
-
-function RegistrationForm() {
   return (
     <>
       <div className="form-Container">
         <h2 className="head">Registration Form</h2>
-        <form action="">
-          <label htmlFor="name">Full Name</label> <br />
+        <form onSubmit={handleSubmit}>
+          <label>Full Name</label> <br />
           <input
             type="text"
+            name="fullName"
             className="input-box"
             placeholder="Enter your name"
-          />{" "}
+            value={formData.fullname}
+            onChange={handleChange}
+          />
           <br />
           <div></div>
-          <label htmlFor="age">Age</label> <br />
+          <label>Age</label> <br />
           <input
             type="number"
+            name="age"
             className="input-box"
             placeholder="Enter your age"
-          />{" "}
+             value={formData.age}
+            onChange={handleChange}
+          />
           <br />
           <div></div>
-          <label htmlFor="email">Email</label> <br />
+          <label>Email</label> <br />
           <input
             type="email"
+            name="email"
             className="input-box"
             placeholder="Enter your email"
-          />{" "}
+             value={formData.email}
+            onChange={handleChange}
+          />
           <br />
           <div></div>
-          <label htmlFor="password">Password</label> <br />
+          <label>Password</label> <br />
           <input
             type="text"
+            name="password"
             className="input-box"
             placeholder="Enter your password"
-          />{" "}
+             value={formData.password}
+            onChange={handleChange}
+          />
           <br />
           <div></div>
-          <label htmlFor="gender">Gender</label> <br />
-          <input type="radio" name="gender" /> Male
-          <input type="radio" name="gender" /> Female <br />
-          <label htmlFor="">Country</label> <br />
-          <select name="country" className="country">
+          <label>Gender</label> <br />
+          <input type="radio" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleChange}/> Male
+          <input type="radio" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleChange}/> Female <br />
+          <label>Country</label> <br />
+          <select name="country" className="country" value={formData.country}
+            onChange={handleChange}>
             <option value="">Select</option>
-            <option value="">Srilanka</option>
-            <option value="">india</option>
-            <option value="">USA</option>
-            <option value="">UK</option>
-            <option value="">canada</option>
-            <option value="">Australis</option>
-          </select>{" "}
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+          </select>
           <br />
-          <label htmlFor="skills">Skills</label> <br />
-          <input type="checkbox" name="" />
+          <label>Skills</label> <br />
+          <input type="checkbox" name="skills" value="HTML" checked={formData.skills.includes("HTML")} onChange={handleChange}  />
           HTML
-          <input type="checkbox" name="" />
+          <input type="checkbox" name="skills" value="CSS"checked={formData.skills.includes("CSS")} onChange={handleChange} />
           CSS
-          <input type="checkbox" name="" />
+          <input type="checkbox" name="skills" value="Javascript" checked={formData.skills.includes("Javascript")} onChange={handleChange} />
           Javascript
-          <input type="checkbox" name="" />
+          <input type="checkbox" name="skills" value="React" checked={formData.skills.includes("React")} onChange={handleChange} />
           React
-          <input type="checkbox" name="" />
+          <input type="checkbox" name="skills" value="Node.js" checked={formData.skills.includes("Node.js")} onChange={handleChange}/>
           Node.js <br />
-          <label htmlFor="Bio">Bio</label> <br />
+          <label>Bio</label> <br />
           <textarea
-            name="textarea"
+            name="bio"
             className="input-box"
             id="text-area"
+            value={formData.bio}
+            onChange={handleChange}
             placeholder="Tell somthing about yourself..."
-          />{" "}
+          />
           <br />
           <button type="submit">Register</button>
         </form>
