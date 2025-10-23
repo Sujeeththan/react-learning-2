@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
 function Fetch() {
-  return (
-    <div>Fetch</div>
-  )
+  const fetchUsers = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
+  useEffect(fetchUsers)
+
+  return <div>Fetch</div>;
 }
 
-export default Fetch
+export default Fetch;
