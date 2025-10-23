@@ -6,7 +6,7 @@ import RegistrationForm from '../componensts/forms/RegistrationForm'
 function Forms() {
   return (
     <div>
-        <StudentForm />
+        {/* <StudentForm /> */}
         <RegistrationForm />
     </div>
   )
