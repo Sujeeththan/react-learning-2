@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/RegistrationForm.css";
+// import * as Yup from "yup"
 
 function RegistrationForm() {
   const initialValues = {
@@ -12,6 +13,36 @@ function RegistrationForm() {
     skills: [],
     bio: "",
   };
+
+//     const validationSchema: Yup.object({
+//     fullname: Yup.string()
+//       .required("Name is required")
+//       .min(2, "Name must have at least 2 characters"),
+//     age: Yup.number()
+//       .required("Age is required")
+//       .typeError("You must be at least 18 years old")
+//       .min(18, "Minimum age is 18")
+//       .max(100, "Maximum age is 100"),
+//     email: Yup.string()
+//       .required("Email is required")
+//       .email("Invalid email format"),
+//     password: Yup.string()
+//       .required("Password is required")
+//       .matches(/[A-Z]/, "Must be at least one uppercase letter")
+//       .matches(/[a-z]/, "Must be at least one lowercase letter")
+//       .matches(/\d/, "Must be at least one number")
+//       .matches(/[@$!%*?&]/, "Must be at least one special character")
+//       .min(6, "Password must be at least 6 charaters long, include uppercase, lowercase,number,and special character"),
+//     gender: Yup.string()
+//       .required("Gender is required"),
+//     country: Yup.string()
+//        .required("Country is required"),
+//     skills: Yup.array()
+//        .min(1, "Select at least one skill"),
+//     bio: Yup.string()
+//        .max(300, "Max 300 characters allowed"),
+//   }),
+// });
 
   const [formData, setFormData] = useState(initialValues);
 
@@ -161,7 +192,7 @@ function RegistrationForm() {
             type="checkbox"
             name="skills"
             value="Node.js"
-            checked={formData.skills.includes("Node.js")}
+            checked={formData.skills.includes("Node.js")}     
             onChange={handleChange}
           />
           Node.js <br />
