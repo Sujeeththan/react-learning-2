@@ -83,7 +83,7 @@ function RegistrationForm() {
           <label>Full Name</label> <br />
           <input
             type="text"
-            name="fullname"
+            name="fullName"
             className="input-box"
             placeholder="Enter your name"
             value={formData.fullName}
