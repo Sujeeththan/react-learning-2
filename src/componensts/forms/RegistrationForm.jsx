@@ -81,10 +81,10 @@ function RegistrationForm() {
           <label>Full Name</label> <br />
           <input
             type="text"
-            name="fullName"
+            name="fullname"
             className="input-box"
             placeholder="Enter your name"
-            value={formData.fullname}
+            value={formData.fullName}
             onChange={handleChange}
           />
           <br />
