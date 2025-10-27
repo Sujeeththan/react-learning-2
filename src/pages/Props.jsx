@@ -7,6 +7,9 @@ function Props() {
     <div>
       <DefaultProps />
       <ConditionalRendering />
+      <ConditionalRendering isActive={false} />
+      <ConditionalRendering status="paid" />
+     
     </div>
   )
 }
