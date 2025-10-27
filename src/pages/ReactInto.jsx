@@ -2,7 +2,9 @@ import React from 'react'
 
 function ReactInto() {
   return (
-    <div>ReactInto Page</div>
+    <div className="content-title">
+      <h1>ReactInto Page</h1>
+    </div>
   )
 }
 
