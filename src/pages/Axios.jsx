@@ -6,7 +6,7 @@ function Axios() {
   return (
     <div>
       <PostData />
-      <FetchData />
+      {/* <FetchData /> */}
       
     </div>
   )
