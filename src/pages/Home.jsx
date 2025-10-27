@@ -9,6 +9,7 @@ function Home() {
       <HomeCard url="props" />
       <HomeCard url="hooks" />
       <HomeCard url="fetch" />
+      <HomeCard url="axios" />
 
       {/* <HomeCard url="forms" /> */}
     </>
