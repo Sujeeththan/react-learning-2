@@ -28,7 +28,7 @@ function StudentForm() {
 
   return (
     <>
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label for="name">Name:</label>
         <br />
         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
@@ -38,7 +38,7 @@ function StudentForm() {
         <input type="number" id="age" name="age" value={formData.age} onChange={handleChange} />
         <br /> <br />
         <input type="submit" />
-      </form> */}
+      </form>
     </>
   );
 }
