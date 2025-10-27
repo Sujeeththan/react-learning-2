@@ -12,6 +12,7 @@ import Hooks from "./pages/Hooks";
 import Forms from "./pages/Forms";
 import RegistrationForm from "./componensts/forms/RegistrationForm";
 import Fetch from "./pages/Fetch";
+import Axios from "./pages/Axios";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/forms" element={<Forms />} />
           <Route path="/registrationForm" element={<RegistrationForm />} />
           <Route path="/fetch" element={<Fetch />} />
+          <Route path="/axios" element={<Axios />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
