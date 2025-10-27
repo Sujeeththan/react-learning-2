@@ -8,7 +8,7 @@ function Fetch() {
    <>
    {/* <JsonPlaceholder /> */}
    {/* <LocalApi /> */}
-   <ApiCall />
+   {/* <ApiCall /> */}
    </>
   )
 }
