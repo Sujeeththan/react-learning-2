@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Forms.css";
 import axios from "axios";
 
@@ -8,6 +8,11 @@ function PostData() {
     email: "",
     isActive: true,
   };
+
+  useEffect(() => {
+      dataSend()
+  })
+  
   const [formData, setFormData] = useState(defaultValues);
 
   const dataSend = async () => {
@@ -20,7 +25,7 @@ function PostData() {
       console.log(error);
     }
   };
-  dataSend();
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
